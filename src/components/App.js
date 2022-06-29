@@ -33,7 +33,8 @@ class App extends Component {
     async loadBlockchainData() {
         const web3 = window.web3
         const accounts = await web3.eth.getAccounts()
-        this.setState({account:'0x6Ac9d8B0f4a2b3CDa27D51d6cD2c27cf9c690b74'})
+        this.setState({account:accounts[0]})
+        console.log(accounts[0])
 
         // create a constant js variable networkId which 
         //is set to blockchain network id 
@@ -150,7 +151,7 @@ class App extends Component {
                         <div className='row textCenter'>
                             {this.state.kryptoBirdz.map((kryptoBird, key)=>{
                                 return(
-                                    <div style={{border:'10px solid black'}}>
+                                    <div key={key} style={{border:'10px solid black'}}>
                                         <div>
                                             <MDBCard className='token img' style={{maxWidth:'22rem'}}>
                                             <MDBCardImage src={kryptoBird}  position='top' height='250rem' style={{marginRight:'4px'}} />
